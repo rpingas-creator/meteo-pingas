@@ -116,7 +116,7 @@ async function selectLocation(loc){
  $('favBtn').classList.toggle('active',favorites.includes(String(loc.id)));$('favBtn').textContent=favorites.includes(String(loc.id))?'★ Favorito':'☆ Favorito';
  try{
   const [om,ip,wa,uv]=await Promise.allSettled([
-   json(`${OM}?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_rain,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_gusts_10m&hourly=temperature_2m,precipitation_probability,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,rain_sum,showers_sum,sunrise,sunset,uv_index_max&forecast_days=14&timezone=auto`),
+   json(`${OM}?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,pressure_msl,wind_speed_10m,wind_gusts_10m&hourly=temperature_2m,precipitation_probability,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max,rain_sum,showers_sum,sunrise,sunset,uv_index_max&forecast_days=14&timezone=auto`),
    json(`${IPMA}/forecast/meteorology/cities/daily/${loc.id}.json`),
    json(`${IPMA}/forecast/warnings/warnings_www.json`),
    json(`${IPMA}/forecast/meteorology/uv/uv.json`)
